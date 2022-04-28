@@ -1,0 +1,22 @@
+- Minimum RTO for a single AZ outage
+	The recovery time requried for AZ outages is 35 seconds, since the DB will automatically failover to the secondary region.
+	Source: https://aws.amazon.com/rds/features/multi-az/
+
+
+- Minimum RTO for a single region outage
+	The recovery time requried for region outages is the sum of the following activities:
+		* Connecting & logging in to AWS (10 min)
+		* Finding the root cause of the issues, time until its realized that the region is down (15 min)
+		* Connecting the applications to the read-replica manually, commit the code change, and redeploy (30 min)	
+	 Hence, an RTO of 1 hour should be a safe estimate. Moreover, if we are strictly talking about the DB,the TRO is going to be less since the applications are a different out of scope in that case.
+	Source: https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.pdf
+
+
+Minimum RPO for a single AZ outage
+		There is no dataloss in multi-az RDS deployments:
+		https://aws.amazon.com/rds/features/multi-az/
+
+Minimum RPO for a single region outage
+		It is expected to have up to 5 minutes lag (data-loss) between to regions for MySQL cross-region read replicas.
+		So and RPO for 6 minutes should be a safe number.
+		
