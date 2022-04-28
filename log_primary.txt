@@ -1,0 +1,37 @@
+
+MySQL [(none)]> SHOW DATABASES
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| udacity            |
++--------------------+
+5 rows in set (0.00 sec)
+
+MySQL [(none)]> \u udacity
+Database changed
+MySQL [udacity]> CREATE TABLE Persons (
+    ->     PersonID int,
+    ->     LastName varchar(255),
+    ->     FirstName varchar(255),
+    ->     Address varchar(255),
+    ->     City varchar(255)
+    -> );
+Query OK, 0 rows affected (0.17 sec)
+
+MySQL [udacity]> INSERT INTO Persons (PersonID, LastName, FirstName, Address, City) VALUES (1234, Ghawanni, Mohammed, Cherry st, FunLand);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'st, FunLand)' at line 1
+MySQL [udacity]> INSERT INTO Persons (PersonID, LastName, FirstName, Address, City) VALUES (1234, 'Ghawanni', 'Mohammed', 'Cherry st', 'FunLand');
+Query OK, 1 row affected (0.01 sec)
+
+MySQL [udacity]> SELECT * FROM Persons;
++----------+----------+-----------+-----------+---------+
+| PersonID | LastName | FirstName | Address   | City    |
++----------+----------+-----------+-----------+---------+
+|     1234 | Ghawanni | Mohammed  | Cherry st | FunLand |
++----------+----------+-----------+-----------+---------+
+1 row in set (0.00 sec)

@@ -1,0 +1,11 @@
+MySQL [udacity]> INSERT INTO Persons (PersonID, LastName, FirstName, Address, City) VALUES (4321, 'Zaafarani', 'Orjwan', 'Banana st', 'FunLand');
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+MySQL [udacity]> INSERT INTO Persons (PersonID, LastName, FirstName, Address, City) VALUES (4321, 'Zaafarani', 'Orjwan', 'Banana st', 'FunLand');
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    10
+Current database: udacity
+
+Query OK, 1 row affected (0.02 sec)
+
+MySQL [udacity]>
